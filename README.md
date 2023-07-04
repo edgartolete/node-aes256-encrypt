@@ -8,8 +8,6 @@ This library uses aes256 encryption algorithm and CBC (Cipher Block Chaining) or
 npm install node-aes256-encrypt
 ```
 
----
-
 ## Sample
 
 ```js
@@ -19,8 +17,6 @@ cbc.setKey(process.env.ENCRYPTION_AES256_KEY);
 const { iv, text } = cbc.encrypt("Text to be encrypted");
 const decryptedText = cbc.decrypt(iv, text);
 ```
-
----
 
 ## Usage
 
@@ -37,8 +33,6 @@ const { cbc } = require("node-aes256-encrypt");
 //for GCM method
 const { gcm } = require("node-aes256-encrypt");
 ```
-
----
 
 ### 2.Set Encryption Key:
 
@@ -101,8 +95,6 @@ cbc.setKey(process.env.ENCRYPTION_AES256_KEY);
 gcm.setKey(process.env.ENCRYPTION_AES256_KEY);
 ```
 
----
-
 ### 3. Encrypt:
 
 ```js
@@ -138,8 +130,6 @@ you can now store the iv using gcmIv variable, the encrypted text using gcmText 
 
 Tag: In the context of authenticated encryption modes like GCM (Galois/Counter Mode), a tag is a piece of data generated during the encryption process. The tag provides integrity and authenticity checks for the ciphertext. It is used to verify that the ciphertext has not been tampered with or modified during transmission or storage. The tag is generated using the encryption key, IV, and additional authentication data, if provided.
 
----
-
 ### 4. Decrypt:
 
 To decrypt the encrypted text, you will need to set the same encryption key that you set before encrypting it, as well as the iv if you use the cbc method,
@@ -165,8 +155,6 @@ const gcmDecrypted = gcm.decrypt(gcmIv, gcmText, gcmTag);
 //or for Quick GCM method
 const decryptedGcmQuick = gcm.decryptQuick(encryptedGcmQuick);
 ```
-
----
 
 ## Tips:
 

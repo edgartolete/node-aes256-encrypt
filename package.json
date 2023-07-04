@@ -1,6 +1,6 @@
 {
   "name": "node-aes256-encrypt",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A package that will allow you to easily encrypt and decrypt text using aes256 encryption algorithm.",
   "main": "index.js",
   "scripts": {

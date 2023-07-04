@@ -18,12 +18,12 @@ import the module to your project.
 
 ```js
 //for CBC method
-const { cbc } = require("./encryption.js");
+const { cbc } = require("node-aes256-encrypt");
 ```
 
 ```js
 //for GCM method
-const { gcm } = require("./encryption.js");
+const { gcm } = require("node-aes256-encrypt");
 ```
 
 ---
@@ -47,7 +47,7 @@ If you don't have a key yet, you can generate using the keyGen function of this 
 include keyGen to your file.
 
 ```js
-const { keyGen } = require("./encryption");
+const { keyGen } = require("node-aes256-encrypt");
 ```
 
 Generate a key and save it to a variable to console log.
@@ -124,7 +124,7 @@ const {
 const encryptedGcmQuick = gcm.encryptQuick("Text to be encrypted");
 ```
 
-you can not store the iv using gcmIv variable, the encrypted text using gcmText variable, and the tag using gcmTag variable.
+you can now store the iv using gcmIv variable, the encrypted text using gcmText variable, and the tag using gcmTag variable.
 
 Tag: In the context of authenticated encryption modes like GCM (Galois/Counter Mode), a tag is a piece of data generated during the encryption process. The tag provides integrity and authenticity checks for the ciphertext. It is used to verify that the ciphertext has not been tampered with or modified during transmission or storage. The tag is generated using the encryption key, IV, and additional authentication data, if provided.
 

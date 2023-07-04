@@ -1,6 +1,6 @@
 # node-aes256-encrypt
 
-This library uses aes256 encryption algorithm and CBC (Cipher Block Chaining) or GCM (Galois/Counter Mode) modes of operation for encryption only.
+This library uses aes256 encryption algorithm and CBC (Cipher Block Chaining) or GCM (Galois/Counter Mode) modes of operation for encryption only for now.
 
 ## Installation
 
@@ -12,7 +12,7 @@ npm install node-aes256-encrypt
 
 ## Usage
 
-### 1. Import Module
+### 1. Import Module:
 
 import the module to your project.
 
@@ -28,7 +28,7 @@ const { gcm } = require("node-aes256-encrypt");
 
 ---
 
-### 2.Set Encryption Key
+### 2.Set Encryption Key:
 
 Set the encryption key as it is required for encryption. The encryption key should be 256 bits long, or 32 bytes. It is important to generate a key with sufficient entropy and randomness to ensure its strength.
 
@@ -50,14 +50,15 @@ include keyGen to your file.
 const { keyGen } = require("node-aes256-encrypt");
 ```
 
-Generate a key and save it to a variable to console log.
+Generate a key and save it as the encryption key.This key should be kept intensively as it can be used to decrypt all encrypted data.
+
+NOTE: You can create a key for production only, and a separate key for development that you can share with other developers.
 
 ```js
 const encryptionKey = keyGen();
-console.log(encryptionKey);
 ```
 
-you will then create a `.env` file to the root directory of your project.
+Create a `.env` file to the root directory of your project, or save it as an environment variable on your server.
 
 ```env
 ENCRYPTION_AES256_KEY="place your key here..."
@@ -68,18 +69,15 @@ install dotenv dependency to your project
 ```sh
 ## npm
 npm install dotenv
-
-## yarn
-yarn add dotenv
 ```
 
-then include it to your file.
+then include it to your main js file.
 
 ```js
 require("dotenv").config();
 ```
 
-Then use the environment variable instead, it is a best practice to make it more secure
+Use the environment variable instead in the setKey parameter.
 
 ```js
 //for CBC method
@@ -93,7 +91,7 @@ gcm.setKey(process.env.ENCRYPTION_AES256_KEY);
 
 ---
 
-### 3. Encrypt
+### 3. Encrypt:
 
 ```js
 //for CBC method
@@ -130,7 +128,7 @@ Tag: In the context of authenticated encryption modes like GCM (Galois/Counter M
 
 ---
 
-### 4. Decrypt
+### 4. Decrypt:
 
 To decrypt the encrypted text, you will need to set the same encryption key that you set before encrypting it, as well as the iv if you use the cbc method,
 
@@ -158,7 +156,7 @@ const decryptedGcmQuick = gcm.decryptQuick(encryptedGcmQuick);
 
 ---
 
-## Last Take
+## Tips:
 
 It is recommended to follow established practices for storing IV and tag securely. Here are some common approaches:
 

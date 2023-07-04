@@ -56,7 +56,7 @@ include keyGen to your file.
 const { keyGen } = require("node-aes256-encrypt");
 ```
 
-Generate a key and save it as the encryption key.This key should be kept intensively as it can be used to decrypt all encrypted data.
+Generate a key and save it as the encryption key. This key should be kept intensively as it can be used to decrypt all encrypted data.
 
 NOTE: You can create a key for production only, and a separate key for development that you can share with other developers.
 

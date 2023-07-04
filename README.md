@@ -2,6 +2,12 @@
 
 This library uses aes256 encryption algorithm and CBC (Cipher Block Chaining) or GCM (Galois/Counter Mode) modes of operation for encryption only.
 
+## Installation
+
+```sh
+npm install node-aes256-encrypt
+```
+
 ---
 
 ## Usage

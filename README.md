@@ -2,10 +2,6 @@
 
 This library uses aes256 encryption algorithm and CBC (Cipher Block Chaining) or GCM (Galois/Counter Mode) modes of operation for encryption only.
 
-## Installation
-
-Copy the encryption.js in the node.js environment folder of your project, thats it!
-
 ---
 
 ## Usage

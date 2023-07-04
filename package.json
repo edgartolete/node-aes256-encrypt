@@ -1,0 +1,22 @@
+{
+  "name": "node-aes256-encrypt",
+  "version": "0.1.3",
+  "description": "A package that will allow you to easily encrypt and decrypt text using aes256 encryption algorithm.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node-aes256-encrypt",
+    "encryption",
+    "aes256",
+    "aes256 encryption",
+    "node aes256 encryption"
+  ],
+  "author": "Edgar Tolete",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edgartolete/node-aes256-encrypt.git"
+  }
+}

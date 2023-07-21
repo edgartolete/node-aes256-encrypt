@@ -7,13 +7,13 @@ let gcmKey = null;
 module.exports = {
     cbc: {
         setKey: (textKey) => cbcKey = Buffer.from(textKey, 'base64'),
-        encrypt: (text) => cbcEncrypt(text),
-        decrypt: (ivHex, encryptedText) => cbcDecrypt(ivHex, encryptedText),
-        encryptQuick: (data) => {
+        encryptLong: (text) => cbcEncrypt(text),
+        decryptLong: (ivHex, encryptedText) => cbcDecrypt(ivHex, encryptedText),
+        encrypt: (data) => {
             const {iv, text} = cbcEncrypt(data);
             return iv + text;
         },
-        decryptQuick: (data) => {
+        decrypt: (data) => {
             ivHex = data.slice(0,32);
             encryptedText = data.slice(32)
             return cbcDecrypt(ivHex, encryptedText)
@@ -21,13 +21,13 @@ module.exports = {
     },
     gcm: {
         setKey: (textKey) => gcmKey = Buffer.from(textKey, 'base64'),
-        encrypt: (text) => gcmEncrypt(text),
-        decrypt: (ivHex, encryptedText, tagHex) => gcmDecrypt(ivHex, encryptedText, tagHex),
-        encryptQuick: (data) =>{
+        encryptLong: (text) => gcmEncrypt(text),
+        decryptLong: (ivHex, encryptedText, tagHex) => gcmDecrypt(ivHex, encryptedText, tagHex),
+        encrypt: (data) =>{
             const {iv, text, tag } = gcmEncrypt(data);
             return iv + text + tag;
         },
-        decryptQuick: (data) => {
+        decrypt: (data) => {
             const ivHex = data.slice(0, 24); 
             const encryptedText = data.slice(24, -32); 
             const tagHex = data.slice(-32); 

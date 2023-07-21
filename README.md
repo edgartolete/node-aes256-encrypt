@@ -99,12 +99,12 @@ gcm.setKey(process.env.ENCRYPTION_AES256_KEY);
 
 ```js
 //for CBC method
-const { iv: cbcIv, text: cbcText } = cbc.encrypt("Text to be encrypted");
+const { iv: cbcIv, text: cbcText } = cbc.encryptLong("Text to be encrypted");
 ```
 
 ```js
-//or for Quick CBC method
-const encryptedCbcQuick = cbc.encryptQuick("Text to be encrypted");
+//or for Long CBC method
+const encryptedCbc = cbc.encrypt("Text to be encrypted");
 ```
 
 you can not store the iv using cbcIv variable, and the encrypted text using cbcText variable
@@ -123,7 +123,7 @@ const {
 
 ```js
 //or for Quick GCM method
-const encryptedGcmQuick = gcm.encryptQuick("Text to be encrypted");
+const encryptedGcm = gcm.encrypt("Text to be encrypted");
 ```
 
 you can now store the iv using gcmIv variable, the encrypted text using gcmText variable, and the tag using gcmTag variable.
@@ -141,19 +141,19 @@ const cbcDecrypted = cbc.decrypt(cbcIv, cbcText);
 
 ```js
 //or for Quick CBC method
-const decryptedCbcQuick = cbc.decryptQuick(encryptedCbcQuick);
+const decryptedCbc = cbc.decrypt(encryptedCbc);
 ```
 
 And iv plus tag if you used the gcm method.
 
 ```js
 //for GCM method
-const gcmDecrypted = gcm.decrypt(gcmIv, gcmText, gcmTag);
+const gcmDecrypted = gcm.decryptLong(gcmIv, gcmText, gcmTag);
 ```
 
 ```js
 //or for Quick GCM method
-const decryptedGcmQuick = gcm.decryptQuick(encryptedGcmQuick);
+const decryptedGcm = gcm.decrypt(encryptedGcm);
 ```
 
 ## Tips:

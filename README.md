@@ -11,11 +11,11 @@ npm install node-aes256-encrypt
 ## Sample
 
 ```js
-const { cbc } = require("node-aes256-encrypt");
+const { gcm } = require("node-aes256-encrypt");
 
 cbc.setKey(process.env.ENCRYPTION_AES256_KEY);
-const { iv, text } = cbc.encrypt("Text to be encrypted");
-const decryptedText = cbc.decrypt(iv, text);
+const encryptedText = gcm.encrypt("Text to be encrypted");
+const decryptedText = gcm.decrypt(encryptedText);
 ```
 
 ## Usage

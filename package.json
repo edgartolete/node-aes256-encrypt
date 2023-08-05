@@ -18,5 +18,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/edgartolete/node-aes256-encrypt.git"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0"
   }
 }
